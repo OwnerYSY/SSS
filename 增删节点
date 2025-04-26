@@ -1,0 +1,44 @@
+// 在链表头部插入节点
+void insertAtHead(Node** head, int data) {
+    Node* newNode = createNode(data);
+    newNode->next = *head;
+    *head = newNode;
+}
+
+// 在链表尾部插入节点
+void insertAtTail(Node** head, int data) {
+    Node* newNode = createNode(data);
+    if (*head == NULL) {
+        *head = newNode;
+        return;
+    }
+    
+    Node* current = *head;
+    while (current->next != NULL) {
+        current = current->next;
+    }
+    current->next = newNode;
+}
+
+// 删除第一个匹配的节点
+void deleteNode(Node** head, int data) {
+    if (*head == NULL) return;
+    
+    if ((*head)->data == data) {
+        Node* temp = *head;
+        *head = (*head)->next;
+        free(temp);
+        return;
+    }
+    
+    Node* current = *head;
+    while (current->next != NULL && current->next->data != data) {
+        current = current->next;
+    }
+    
+    if (current->next != NULL) {
+        Node* temp = current->next;
+        current->next = current->next->next;
+        free(temp);
+    }
+}
