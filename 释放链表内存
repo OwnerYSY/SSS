@@ -1,0 +1,19 @@
+// 打印链表
+void printList(Node* head) {
+    Node* current = head;
+    while (current != NULL) {
+        printf("%d -> ", current->data);
+        current = current->next;
+    }
+    printf("NULL\n");
+}
+
+// 释放链表内存
+void freeList(Node* head) {
+    Node* current = head;
+    while (current != NULL) {
+        Node* temp = current;
+        current = current->next;
+        free(temp);
+    }
+}
