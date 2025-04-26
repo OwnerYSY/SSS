@@ -6,10 +6,8 @@ int main() {
     insertAtTail(&head, 20);
     insertAtHead(&head, 5);
     insertAtTail(&head, 30);
-    
     printf("初始链表: ");
     printList(head);
-    
     // 测试删除功能
     deleteNode(&head, 20);
     printf("删除20后的链表: ");
@@ -26,7 +24,6 @@ int main() {
     printList(head);
     
     // 释放内存
-    freeList(head);
-    
+    freeList(head); 
     return 0;
 }
