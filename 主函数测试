@@ -1,0 +1,32 @@
+int main() {
+    Node* head = NULL;
+    
+    // 测试插入功能
+    insertAtHead(&head, 10);
+    insertAtTail(&head, 20);
+    insertAtHead(&head, 5);
+    insertAtTail(&head, 30);
+    
+    printf("初始链表: ");
+    printList(head);
+    
+    // 测试删除功能
+    deleteNode(&head, 20);
+    printf("删除20后的链表: ");
+    printList(head);
+    
+    // 测试删除头节点
+    deleteNode(&head, 5);
+    printf("删除5后的链表: ");
+    printList(head);
+    
+    // 测试删除不存在的节点
+    deleteNode(&head, 99);
+    printf("尝试删除99后的链表: ");
+    printList(head);
+    
+    // 释放内存
+    freeList(head);
+    
+    return 0;
+}
